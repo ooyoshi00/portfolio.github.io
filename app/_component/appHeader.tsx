@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {
   AppBar,
@@ -9,10 +11,11 @@ import {
   MenuItem,
   Toolbar,
   Tooltip,
-  Typography
+  Typography,
+  createTheme
 } from '@mui/material'
 
-const pages = ['Products', 'Pricing', 'Blog']
+const pages = ['About', 'Skills']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 export function ResponsiveAppBar() {

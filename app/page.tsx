@@ -67,7 +67,7 @@ const Home = () => {
             {career.map((item) => (
               <ListItem>
                 <ListItemIcon>
-                  <CheckIcon fontSize="small" />
+                  <CheckIcon fontSize="small" sx={{ color: 'black' }} />
                 </ListItemIcon>
                 <ListItemText primary={item} />
               </ListItem>
@@ -80,7 +80,7 @@ const Home = () => {
             {Object.keys(links).map((key) => (
               <ListItem key={key}>
                 <ListItemIcon>
-                  <CheckIcon fontSize="small" />
+                  <CheckIcon fontSize="small" sx={{ color: 'black' }} />
                 </ListItemIcon>
                 <ListItemText>
                   {key}{' '}
