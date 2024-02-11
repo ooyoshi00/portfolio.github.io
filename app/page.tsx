@@ -52,7 +52,7 @@ const links: Links = {
 
 const Home = () => {
   return (
-    <Box maxWidth={'65ch'} mr="auto" ml="auto">
+    <Box maxWidth={'80ch'} mr="auto" ml="auto">
       <ResponsiveAppBar />
       <Box display={'flex'} flexDirection="column" justifyContent={'center'}>
         <Typography variant="h2" margin={2}>
