@@ -1,6 +1,15 @@
 'use client'
 
-import { Box, Grid, Typography, styled } from '@mui/material'
+import {
+  Box,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  Paper,
+  Typography,
+  styled
+} from '@mui/material'
 import ResponsiveAppBar from '../_component/appHeader'
 
 import {
@@ -194,6 +203,25 @@ const Home = () => {
             />
           </RadarChart>
         </Box>
+        <Paper elevation={3}>
+          <List>
+            <ListItem>
+              <ListItemText secondary={'5: 完全に理解している'} />
+            </ListItem>
+            <ListItem>
+              <ListItemText secondary={'4: 最適になるように設計・実装できる'} />
+            </ListItem>
+            <ListItem>
+              <ListItemText secondary={'3: ある程度1人で設計・実装できる'} />
+            </ListItem>
+            <ListItem>
+              <ListItemText secondary={'2: 調べながらなら設計・実装できる'} />
+            </ListItem>
+            <ListItem>
+              <ListItemText secondary={'1: 触ったことがある'} />
+            </ListItem>
+          </List>
+        </Paper>
       </Box>
     </Box>
   )

@@ -6,7 +6,7 @@ import { orange } from '@mui/material/colors'
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
       main: '#1976d2'
     }
