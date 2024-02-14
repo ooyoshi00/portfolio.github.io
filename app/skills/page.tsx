@@ -48,6 +48,18 @@ const frontendSkills: Skills[] = [
 
 const backendSkills: Skills[] = [
   {
+    name: 'JavaScript',
+    rank: 3
+  },
+  {
+    name: 'TypeScript',
+    rank: 3
+  },
+  {
+    name: 'Python',
+    rank: 2
+  },
+  {
     name: 'MySQL',
     rank: 1
   },
@@ -107,49 +119,61 @@ const Home = () => {
         </Typography>
         <Grid container spacing={0.5} fontSize={'x-small'}>
           <GridRechartItem item xs={6}>
-            <RadarChart
-              cx="50%"
-              cy="50%"
-              outerRadius="80%"
-              height={300}
-              width={400}
-              data={frontendSkills}
-            >
-              <PolarGrid />
-              <PolarAngleAxis dataKey="name" />
-              <PolarRadiusAxis domain={[0, 5]} />
-              <Radar
-                name="Mike"
-                dataKey="rank"
-                stroke="#8884d8"
-                fill="#8884d8"
-                fillOpacity={0.6}
-              />
-            </RadarChart>
+            <Box display={'flex'} flexDirection={'column'}>
+              <Typography variant="h6">Frontend</Typography>
+              <RadarChart
+                cx="50%"
+                cy="50%"
+                outerRadius="80%"
+                height={300}
+                width={400}
+                data={frontendSkills}
+              >
+                <PolarGrid />
+                <PolarAngleAxis dataKey="name" />
+                <PolarRadiusAxis domain={[0, 5]} />
+                <Radar
+                  name="Mike"
+                  dataKey="rank"
+                  stroke="#8884d8"
+                  fill="#8884d8"
+                  fillOpacity={0.6}
+                />
+              </RadarChart>
+            </Box>
           </GridRechartItem>
           <GridRechartItem item xs={6}>
-            <RadarChart
-              cx="50%"
-              cy="50%"
-              outerRadius="80%"
-              height={300}
-              width={400}
-              data={backendSkills}
-            >
-              <PolarGrid />
-              <PolarAngleAxis dataKey="name" />
-              <PolarRadiusAxis domain={[0, 5]} />
-              <Radar
-                name="Mike"
-                dataKey="rank"
-                stroke="#8884d8"
-                fill="#8884d8"
-                fillOpacity={0.6}
-              />
-            </RadarChart>
+            <Box display={'flex'} flexDirection={'column'}>
+              <Typography variant="h6">Backend</Typography>
+              <RadarChart
+                cx="50%"
+                cy="50%"
+                outerRadius="80%"
+                height={300}
+                width={400}
+                data={backendSkills}
+              >
+                <PolarGrid />
+                <PolarAngleAxis dataKey="name" />
+                <PolarRadiusAxis domain={[0, 5]} />
+                <Radar
+                  name="Mike"
+                  dataKey="rank"
+                  stroke="#8884d8"
+                  fill="#8884d8"
+                  fillOpacity={0.6}
+                />
+              </RadarChart>
+            </Box>
           </GridRechartItem>
         </Grid>
-        <Box display={'flex'} justifyContent={'center'} fontSize={'x-small'}>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          fontSize={'x-small'}
+        >
+          <Typography variant="h6">Dev/Ops</Typography>
           <RadarChart
             cx="50%"
             cy="50%"
