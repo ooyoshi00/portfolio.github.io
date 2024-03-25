@@ -19,6 +19,7 @@ import {
   Radar,
   RadarChart
 } from 'recharts'
+import { useEffect, useState } from 'react'
 
 const profile = {
   name: 'Yoshi Oka'
@@ -119,6 +120,22 @@ const GridRechartItem = styled(Grid)({
 })
 
 const Home = () => {
+  const [frontend, setFrontend] = useState(null)
+  console.log(process.env.NEXT_PUBLIC_API_URL)
+  useEffect(() => {
+    ;(async () => {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/db`)
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      console.log(response)
+      const data = await response.json()
+      setFrontend(data)
+    })()
+  }, [])
+
+  console.log(frontend)
+
   return (
     <Box maxWidth={'80ch'} mr="auto" ml="auto">
       <ResponsiveAppBar />

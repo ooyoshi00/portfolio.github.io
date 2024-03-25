@@ -23,6 +23,9 @@
     "recharts": "^2.12.0",
     "rss": "^1.2.2"
   },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "prettier": {
     "arrowParens": "always",
     "singleQuote": true,
