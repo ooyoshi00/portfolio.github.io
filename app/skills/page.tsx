@@ -19,7 +19,7 @@ import {
   Radar,
   RadarChart
 } from 'recharts'
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer } from 'react'
 import { categorizeSkills } from '../../lib/categorizaSkills'
 
 type DataState = {
@@ -35,7 +35,6 @@ const initialState: DataState = {
 }
 
 const dataFetchReducer = (dataState, action) => {
-  console.log(dataState, action)
   switch (action.type) {
     case 'FETCH_INIT':
       return {
@@ -82,8 +81,6 @@ const Home = () => {
         dispatch({ type: 'FETCH_ERROR', payload: {} })
       })
   }, [])
-
-  console.log(dataState.data, dataState)
 
   return (
     <Box maxWidth={'80ch'} mr="auto" ml="auto">
