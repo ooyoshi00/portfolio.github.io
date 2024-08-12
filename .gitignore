@@ -34,3 +34,8 @@ yarn-error.log*
 .vercel
 
 public/feed.xml
+
+terraform.tfstate*
+.firebase
+.terraform
+.terraform.*

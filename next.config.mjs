@@ -4,6 +4,8 @@ import createMDX from '@next/mdx'
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  exportTrailingSlash: true,
+  distDir: 'out',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   images: {
     // MEMO: https://nextjs.org/docs/messages/export-image-api
