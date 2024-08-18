@@ -50,6 +50,11 @@ const ResponsiveAppBar = () => {
                 Skills
               </Button>
             </NoLineLink>
+            <NoLineLink href="/blogs" prefetch={true}>
+              <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                Blogs
+              </Button>
+            </NoLineLink>
           </Box>
         </Toolbar>
       </Container>
