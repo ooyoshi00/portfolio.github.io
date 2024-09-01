@@ -1,8 +1,16 @@
 'use client'
 
-import { Checkbox, ThemeProvider, createTheme, styled } from '@mui/material'
+import {
+  Box,
+  Checkbox,
+  ThemeProvider,
+  createTheme,
+  styled
+} from '@mui/material'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 import { orange } from '@mui/material/colors'
+import ResponsiveAppBar from './_component/appHeader'
+import ResponsiveAppFooter from './_component/appFooter'
 
 const darkTheme = createTheme({
   palette: {
@@ -18,7 +26,13 @@ const RootLayout = ({ children }) => {
     <html lang="ja">
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>
+          <ThemeProvider theme={darkTheme}>
+            <Box maxWidth={'80ch'} mr="auto" ml="auto">
+              <ResponsiveAppBar />
+              {children}
+              <ResponsiveAppFooter />
+            </Box>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

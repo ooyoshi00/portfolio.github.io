@@ -2,14 +2,12 @@
 
 import {
   Box,
-  Link,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Typography
 } from '@mui/material'
-import ResponsiveAppBar from './_component/appHeader'
 import CheckIcon from '@mui/icons-material/Check'
 
 const profile = {
@@ -25,35 +23,9 @@ const career = [
   '運動するのが好きで、中学から野球を続けてます'
 ]
 
-type Links = {
-  [key: string]: {
-    name: string
-    link: string
-  }
-}
-const links: Links = {
-  'X(旧Twitter)': {
-    name: '@yosshioka0022',
-    link: 'https://twitter.com/yosshioka0022'
-  },
-  GitHub: {
-    name: '@ooyoshi00',
-    link: 'https://github.com/ooyoshi00'
-  },
-  Zenn: {
-    name: '@yoshiooon',
-    link: 'https://zenn.dev/yoshiooon'
-  },
-  Qiita: {
-    name: '@oyoshi0022',
-    link: 'https://qiita.com/oyoshi0022'
-  }
-}
-
 const Home = () => {
   return (
-    <Box maxWidth={'80ch'} mr="auto" ml="auto">
-      <ResponsiveAppBar />
+    <>
       <Box display={'flex'} flexDirection="column" justifyContent={'center'}>
         <Typography variant="h2" margin={2}>
           About
@@ -74,30 +46,8 @@ const Home = () => {
             ))}
           </List>
         </Box>
-        <Box display={'flex'} flexDirection={'column'} margin={2}>
-          <Typography variant="h4">Links</Typography>
-          <List>
-            {Object.keys(links).map((key) => (
-              <ListItem key={key}>
-                <ListItemIcon>
-                  <CheckIcon fontSize="small" sx={{ color: 'black' }} />
-                </ListItemIcon>
-                <ListItemText>
-                  {key}{' '}
-                  <Link
-                    href={links[key].link}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    {links[key].name}
-                  </Link>
-                </ListItemText>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
       </Box>
-    </Box>
+    </>
   )
 }
 
