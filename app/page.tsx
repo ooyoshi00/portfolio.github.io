@@ -12,19 +12,11 @@ import {
 } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { grey } from '@mui/material/colors'
+import Skills from './skills'
 
 const profile = {
   name: 'Yoshioka'
 }
-
-const career = [
-  '1995 年生まれ 関東在住',
-  'フロントエンドエンジニアとして新卒で働き始めて 3 年目',
-  '主に TypeScript+React で開発',
-  'バックエンドも AWS,たまに Firebase も触ってます',
-  '将来的にはフルスタックに開発したいと思い、色々な技術に手をつけてます',
-  '運動するのが好きで、中学から野球を続けてます'
-]
 
 const startYear = 2020
 const Home = () => {
@@ -50,6 +42,7 @@ const Home = () => {
             </Box>
           </Box>
         </Paper>
+        <Skills />
       </Box>
     </>
   )
