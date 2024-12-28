@@ -1,101 +1,82 @@
-'use client'
+import Image from 'next/image'
 
-import * as React from 'react'
-import {
-  Box,
-  Card,
-  CardActionArea,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled
-} from '@mui/material'
-import Link from 'next/link'
-import XIcon from '@mui/icons-material/X'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import { ReactNode } from '@mdx-js/react/lib'
-import { blue } from '@mui/material/colors'
-
-const NoLineLink = styled(Link)({
-  textDecoration: 'none'
-})
-
-type Links = {
-  [key: string]: {
-    name: string
-    link: string
-    icon?: ReactNode
-  }
-}
-const links: Links = {
+const socialLinks = {
   'X(旧Twitter)': {
     name: '@yosshioka0022',
-    link: 'https://twitter.com/yosshioka0022',
-    icon: <XIcon />
+    link: 'https://x.com/okamune_web',
+    icon: (
+      <Image
+        src="/images/x-logo.png"
+        alt="x"
+        width={24}
+        height={24}
+        className="text-blue-500"
+      />
+    )
   },
   GitHub: {
     name: '@ooyoshi00',
     link: 'https://github.com/ooyoshi00',
-    icon: <GitHubIcon />
+    icon: (
+      <Image
+        src="/images/github.svg"
+        alt="github"
+        width={24}
+        height={24}
+        className="text-blue-500"
+      />
+    )
   },
   Zenn: {
     name: '@yoshiooon',
-    link: 'https://zenn.dev/yoshiooon'
+    link: 'https://zenn.dev/yoshiooon',
+    icon: (
+      <Image
+        src="/images/zenn.svg"
+        alt="Zenn"
+        width={24}
+        height={24}
+        className="text-blue-500"
+      />
+    )
   },
   Qiita: {
-    name: '@oyoshi0022',
-    link: 'https://qiita.com/oyoshi0022'
+    name: '@okamune',
+    link: 'https://qiita.com/okamune',
+    icon: <Image src="/images/qiita.png" alt="Qiita" width={24} height={24} />
   }
 }
 
-const ResponsiveAppFooter = () => {
+export default function Footer() {
   return (
-    <>
-      <Box
-        sx={{
-          width: '100%',
-          height: 'auto',
-          padding: '1rem'
-        }}
-      >
-        <Divider />
-        <Container maxWidth="lg" sx={{ padding: '1rem' }}>
-          <Grid container direction="column" alignItems="center">
-            <Grid item xs={12}>
-              <SNSLists />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body2" color="textSecondary" align="center">
-                {'Copyright © '}
-                Yoshioka {new Date().getFullYear()}
-                {'.'}
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </>
-  )
-}
-export default ResponsiveAppFooter
-
-const SNSLists = () => {
-  return (
-    <Box display={'flex'} flexDirection={'row'} flexWrap={'wrap'} p={2} gap={1}>
-      {Object.keys(links).map((key) => (
-        <Card sx={{ backgroundColor: blue[50], padding: '0.5rem' }}>
-          <CardActionArea
-            href={links[key].link}
-            target="_blank"
-            rel="noreferrer noopener"
-            sx={{ display: 'flex', alignItems: 'center' }}
-          >
-            {links[key].icon ? links[key].icon : key}：&nbsp;
-            <Box fontWeight="Bold">{links[key].name}</Box>
-          </CardActionArea>
-        </Card>
-      ))}
-    </Box>
+    <footer className="bg-white border-t border-blue-100 mt-auto">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="text-xl font-bold text-blue-800">
+            ソーシャルメディア
+          </div>
+          <div className="flex flex-wrap justify-center gap-6">
+            {Object.entries(socialLinks).map(([platform, data]) => {
+              const Icon = data.icon
+              return (
+                <a
+                  key={platform}
+                  href={data.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  {Icon && Icon}
+                  <span className="font-medium">{data.name}</span>
+                </a>
+              )
+            })}
+          </div>
+          <p className="text-sm text-gray-500 mt-4">
+            © {new Date().getFullYear()} Your Name. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }

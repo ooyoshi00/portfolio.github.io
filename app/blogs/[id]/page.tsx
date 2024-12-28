@@ -2,7 +2,8 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import fs from 'fs'
-import ResponsiveAppBar from '../../_component/appHeader'
+import TableOfContents from '../TableOfComponents'
+import BlogPost from './BlogPost'
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'mdx')
@@ -33,21 +34,38 @@ export default async function Page({ params }) {
   const mdx = await loadMDX(params.id)
   const content = mdx.content
   const frontmatter = mdx.frontmatter as { title: string; author: string }
+  const post = {
+    ...frontmatter,
+    content,
+    date: '',
+    tags: []
+  }
   return (
-    <div>
-      <ResponsiveAppBar />
-      <header
-        style={
-          {
-            /*略*/
-          }
-        }
-      >
-        <h1>{frontmatter.title}</h1>
-        <div>{frontmatter.author}</div>
-        <div>{new Date().toLocaleString()}</div>
-      </header>
-      <article>{content}</article>
+    // <div>
+    //   <header
+    //     style={
+    //       {
+    //         /*略*/;
+    //       }
+    //     }
+    //   >
+    //     <h1>{frontmatter.title}</h1>
+    //     <div>{frontmatter.author}</div>
+    //     <div>{new Date().toLocaleString()}</div>
+    //   </header>
+    //   <article>{content}</article>
+    // </div>
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        <aside className="md:w-1/4">
+          <div className="sticky top-8">
+            <TableOfContents content={content} />
+          </div>
+        </aside>
+        <article className="md:w-3/4">
+          <BlogPost post={post} />
+        </article>
+      </div>
     </div>
   )
 }
