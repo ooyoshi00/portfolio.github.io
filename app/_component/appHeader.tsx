@@ -1,64 +1,47 @@
 'use client'
-
-import * as React from 'react'
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Toolbar,
-  Typography,
-  styled
-} from '@mui/material'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-const NoLineLink = styled(Link)({
-  textDecoration: 'none'
-})
-
-const ResponsiveAppBar = () => {
+const Header = () => {
+  const pathname = usePathname()
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none'
-            }}
-          >
-            Port Folio
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <NoLineLink href="/" prefetch={true}>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-                About
-              </Button>
-            </NoLineLink>
-            <NoLineLink href="/skills" prefetch={true}>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-                Skills
-              </Button>
-            </NoLineLink>
-            <NoLineLink href="/blogs" prefetch={true}>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-                Blogs
-              </Button>
-            </NoLineLink>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <header className="bg-blue-600 text-white">
+      <nav className="container mx-auto px-4 py-4">
+        <ul className="flex space-x-4">
+          <li>
+            <Link
+              href="/"
+              className={`hover:text-blue-200 transition-colors ${
+                pathname === '/' ? 'font-bold' : ''
+              }`}
+            >
+              ホーム
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/blogs"
+              className={`hover:text-blue-200 transition-colors ${
+                pathname === '/blogs' ? 'font-bold' : ''
+              }`}
+            >
+              ブログ
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/rss"
+              className={`hover:text-blue-200 transition-colors ${
+                pathname === '/rss' ? 'font-bold' : ''
+              }`}
+            >
+              RSS
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
-export default ResponsiveAppBar
+
+export default Header

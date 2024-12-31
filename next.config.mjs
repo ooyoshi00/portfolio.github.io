@@ -2,10 +2,9 @@ import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  // extension: /\.mdx?$/,
   output: 'export',
-  exportTrailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     // MEMO: https://nextjs.org/docs/messages/export-image-api
     unoptimized: true

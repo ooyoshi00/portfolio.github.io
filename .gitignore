@@ -39,3 +39,5 @@ terraform.tfstate*
 .firebase
 .terraform
 .terraform.*
+
+firebase-serviceAccount.json
