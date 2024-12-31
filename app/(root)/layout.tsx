@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
         <Header />
         <Breadcrumbs />
         <main className="container mx-auto px-4 py-8">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )

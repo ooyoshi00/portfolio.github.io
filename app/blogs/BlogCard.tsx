@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { CalendarIcon, TagIcon } from 'lucide-react'
 
 interface BlogPost {
