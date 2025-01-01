@@ -28,16 +28,18 @@ const Header = () => {
               ブログ
             </Link>
           </li>
-          <li>
-            <Link
-              href="/rss"
-              className={`hover:text-blue-200 transition-colors ${
-                pathname === '/rss' ? 'font-bold' : ''
-              }`}
-            >
-              RSS
-            </Link>
-          </li>
+          {process.env.IS_DEV && (
+            <li>
+              <Link
+                href="/rss"
+                className={`hover:text-blue-200 transition-colors ${
+                  pathname === '/rss' ? 'font-bold' : ''
+                }`}
+              >
+                RSS
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
