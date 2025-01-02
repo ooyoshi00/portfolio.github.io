@@ -54,12 +54,11 @@ const BlogList = async () => {
             />
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <button>もっと見る</button>
-          {/* <Button variant="outline" size="lg">
-            もっと見る
-          </Button> */}
-        </div>
+        {posts.length > 5 && (
+          <div className="mt-8 text-center">
+            <button>もっと見る</button>
+          </div>
+        )}
       </div>
       <Sidebar />
     </div>
