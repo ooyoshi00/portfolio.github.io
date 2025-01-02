@@ -51,6 +51,7 @@ const BlogList = async () => {
               id={id}
               pathname={post.pathname}
               title={post.frontmatter.title as string}
+              date={post.frontmatter.date as string}
             />
           ))}
         </div>
