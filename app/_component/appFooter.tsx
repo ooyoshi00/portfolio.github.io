@@ -8,7 +8,7 @@ const socialLinks = {
     link: 'https://x.com/okamune_web',
     icon: (
       <Image
-        src="/images/x-logo.png"
+        src={`${BASE_PATH}/images/x-logo.png`}
         alt="x"
         width={24}
         height={24}
