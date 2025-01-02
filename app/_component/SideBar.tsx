@@ -19,7 +19,7 @@ const tags = [
 const Sidebar = () => {
   return (
     <aside className="md:w-1/4 space-y-8">
-      <div className="bg-white rounded-lg shadow-md p-6">
+      {/* <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">人気の記事</h2>
         <ul className="space-y-2">
           {popularPosts.map((post) => (
@@ -33,7 +33,7 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">タグ</h2>
         <div className="flex flex-wrap gap-2">
