@@ -1,7 +1,7 @@
 'use client'
 
-import { ReactElement, useEffect, useState } from 'react'
-// import { Link } from 'react-scroll'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-scroll'
 
 interface TOCItem {
   id: string
@@ -10,22 +10,23 @@ interface TOCItem {
 }
 
 interface TableOfContentsProps {
-  content: ReactElement
+  content: string
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
   const [toc, setToc] = useState<TOCItem[]>([])
 
-  //   useEffect(() => {
-  //     const headings = content.match(/^#{1,3} .+$/gm) || []
-  //     const tocItems = headings.map((heading) => {
-  //       const level = heading.split(' ')[0].length
-  //       const text = heading.replace(/^#{1,3} /, '')
-  //       const id = text.toLowerCase().replace(/[^\w]+/g, '-')
-  //       return { id, text, level }
-  //     })
-  //     setToc(tocItems)
-  //   }, [content])
+  useEffect(() => {
+    const headings = content.match(/^#{1,3} .+$/gm) || []
+    const tocItems = headings.map((heading) => {
+      const level = heading.split(' ')[0].length
+      const text = heading.replace(/^#{1,3} /, '')
+      const id = text.toLowerCase().replace(/[^\w]+/g, '-')
+      return { id, text, level }
+    })
+    console.log('tocItems:::', tocItems)
+    setToc(tocItems)
+  }, [content])
 
   return (
     <nav className="bg-white rounded-lg shadow-md p-4">
@@ -36,15 +37,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
             key={item.id}
             style={{ marginLeft: `${(item.level - 1) * 12}px` }}
           >
-            {/* <Link
+            <Link
               to={item.id}
               smooth={true}
               duration={300}
               className="text-blue-600 hover:underline cursor-pointer"
             >
               {item.text}
-            </Link> */}
-            {item.text}
+            </Link>
           </li>
         ))}
       </ul>

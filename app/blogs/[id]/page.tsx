@@ -4,6 +4,7 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import fs from 'fs'
 import TableOfContents from '../TableOfComponents'
 import BlogPost from './BlogPost'
+import matter from 'gray-matter'
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'mdx')
@@ -22,22 +23,21 @@ async function loadMDX(dir: string) {
   const data = await readFile(mdxpath, { encoding: 'utf-8' })
   // mdxをパースする。
   // remark,rehypeのプラグインを指定する場合、またfront-matterもパースする場合、ここで指定する
-  return compileMDX({
-    source: data,
-    options: {
-      parseFrontmatter: true
-    }
-  })
+  const parsed = matter(data)
+  return parsed
 }
 
 export default async function Page({ params }) {
-  const mdx = await loadMDX(params.id)
-  const content = mdx.content
-  const frontmatter = mdx.frontmatter as { title: string; author: string }
+  const parsed = await loadMDX(params.id)
+  const { title, date } = parsed.data
+  const mdText = parsed.content
+
+  // const frontmatter = mdx.frontmatter as { title: string; author: string }
   const post = {
-    ...frontmatter,
-    content,
-    date: '',
+    title,
+    date,
+    mdText,
+    author: '',
     tags: []
   }
   return (
@@ -59,7 +59,7 @@ export default async function Page({ params }) {
       <div className="flex flex-col md:flex-row gap-8">
         <aside className="md:w-1/4">
           <div className="sticky top-8">
-            <TableOfContents content={content} />
+            <TableOfContents content={mdText} />
           </div>
         </aside>
         <article className="md:w-3/4">

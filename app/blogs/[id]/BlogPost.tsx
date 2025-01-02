@@ -8,7 +8,7 @@ import { tomorrow } from 'react-syntax-highlighter'
 interface BlogPostProps {
   post: {
     title: string
-    content: ReactElement
+    mdText: string
     date: string
     author: string
     tags: string[]
@@ -43,8 +43,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
         ))}
       </div>
       <div className="prose prose-blue max-w-none">
-        {post.content}
-        {/* <ReactMarkdown
+        <ReactMarkdown
           components={{
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || '')
@@ -65,8 +64,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             }
           }}
         >
-          {post.content}
-        </ReactMarkdown> */}
+          {post.mdText}
+        </ReactMarkdown>
       </div>
     </div>
   )
