@@ -34,7 +34,7 @@ const socialLinks = {
     link: 'https://zenn.dev/yoshiooon',
     icon: (
       <Image
-        src={`${BASE_PATH}/zenn.svg`}
+        src={`${BASE_PATH}/images/zenn.svg`}
         alt="Zenn"
         width={24}
         height={24}
@@ -47,7 +47,7 @@ const socialLinks = {
     link: 'https://qiita.com/okamune',
     icon: (
       <Image
-        src={`${BASE_PATH}/qiita.png`}
+        src={`${BASE_PATH}/images/qiita.png`}
         alt="Qiita"
         width={24}
         height={24}
@@ -82,7 +82,7 @@ export default function Footer() {
             })}
           </div>
           <p className="text-sm text-gray-500 mt-4">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} Okamune.
           </p>
         </div>
       </div>
