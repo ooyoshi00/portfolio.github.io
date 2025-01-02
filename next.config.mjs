@@ -11,8 +11,8 @@ const nextConfig = {
   }
 }
 
-const withMDX = createMDX({
-  // md plug-in
-})
+// const withMDX = createMDX({
+//   // md plug-in
+// })
 
-export default withMDX(nextConfig)
+export default nextConfig
